@@ -2,16 +2,16 @@ Cylon = require 'cylon'
 
 Cylon.robot
   connection: [
-  	{ name: 'arduino', adaptor: 'firmata', port: '/dev/ttyACM0' },
-  	{ name: 'skynet', adaptor: 'skynet', uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf", token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr" }
-	]
+    { name: 'arduino', adaptor: 'firmata', port: '/dev/ttyACM0' },
+    { name: 'skynet', adaptor: 'skynet', uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf", token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr" }
+  ]
 
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' }
 
   work: (my) ->
     every 1.second(), -> my.led.toggle()
 
-		my.skynet.on 'message', (channel, data) ->
+    my.skynet.on 'message', (channel, data) ->
       console.log(data)
       data = JSON.parse(data)
       if data.red is 'on'
