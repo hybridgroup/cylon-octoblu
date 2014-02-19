@@ -31,5 +31,5 @@ module.exports =
     # Bootstrap your adaptor here. For example, with a Sphero, you would call
     # the registerAdaptor and registerDriver functions as follows:
     #
-    # robot.registerAdaptor 'cylon-sphero', 'sphero'
-    # robot.registerDriver 'cylon-sphero', 'sphero'
+    robot.registerAdaptor 'cylon-skynet', 'skynet'
+    robot.registerDriver 'cylon-skynet', 'skynet'

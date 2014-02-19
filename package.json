@@ -16,7 +16,7 @@
   },
   "licenses": [
     {
-      "type": "your license type here"
+      "type": "Apache 2.0"
     }
   ],
   "devDependencies": {
@@ -34,6 +34,6 @@
   "dependencies": {
     "node-namespace": "~1.0.0",
     "cylon": ">= 0.10.1",
-    "skynet": "git://github.com/skynetim/skynet"
+    "skynet": "latest"
   }
 }

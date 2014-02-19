@@ -35,7 +35,10 @@
         return Object(result) === result ? result : child;
       })(Cylon.Drivers.Skynet, args, function(){});
     },
-    register: function(robot) {}
+    register: function(robot) {
+      robot.registerAdaptor('cylon-skynet', 'skynet');
+      return robot.registerDriver('cylon-skynet', 'skynet');
+    }
   };
 
 }).call(this);
