@@ -71,13 +71,7 @@ Thank you!
 
 ## Release History
 
-Version 0.4.0 - Release for cylon 0.10.0
-
-Version 0.3.0 - Release for cylon 0.9.0
-
-Version 0.2.0 - Release for cylon 0.8.0
-
-Version 0.1.0 - Initial release
+None yet...
 
 ## License
 Copyright (c) 2013-2014 The Hybrid Group. Licensed under the Apache 2.0 license.
