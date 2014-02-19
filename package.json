@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": ">= 0.10.1"
+    "cylon": ">= 0.10.1",
+    "skynet": "git://github.com/skynetim/skynet"
   }
 }
