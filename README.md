@@ -16,39 +16,56 @@ Install the module with: `npm install cylon-skynet`
 
 ## Examples
 
-## Connecting
-
 ### JavaScript
 
 ```javascript
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'skynet', adaptor: 'skynet' },
-  device: {name: 'skynet', driver: 'skynet'},
+  connections: [
+    { name: 'arduino', adaptor: 'firmata', port: '/dev/ttyACM0' },
+    { name: 'skynet', adaptor: 'skynet', uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf", token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr" }
+  ],
+
+  device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' },
 
   work: function(my) {
-    // provide an example of your module here
+    my.skynet.on('message', function(channel, data) {
+      var data = JSON.parse(data);
+      if(data.red == 'on') {
+        my.led.turnOn()
+      }
+      else if(data.red == 'off') {
+        my.led.turnOff()
+      }
+    });
   }
 }).start();
 ```
 
 ### CoffeeScript
 
-```
+```ruby
 Cylon = require 'cylon'
 
 Cylon.robot
-  connection: { name: 'skynet', adaptor: 'skynet' }
-  device: { name: 'skynet', driver: 'skynet' }
+  connections: [
+    { name: 'arduino', adaptor: 'firmata', port: '/dev/ttyACM0' },
+    { name: 'skynet', adaptor: 'skynet', uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf", token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr" }
+  ]
+
+  device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' }
 
   work: (my) ->
-    # provide an example of your module here
+    my.skynet.on 'message', (channel, data) ->
+      data = JSON.parse(data)
+      if data.red is 'on'
+        my.led.turnOn()
+      else if data.red is 'off'
+        my.led.turnOff()
 
 .start()
 ```
-
-Explain how to connect to skynet here...
 
 ## Documentation
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
