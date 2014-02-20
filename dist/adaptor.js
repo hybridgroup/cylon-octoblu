@@ -57,6 +57,10 @@
         });
       };
 
+      Skynet.prototype.message = function(data) {
+        return this.connector.message(data);
+      };
+
       return Skynet;
 
     })(Cylon.Adaptor);

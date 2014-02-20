@@ -39,3 +39,6 @@ namespace 'Cylon.Adaptors', ->
         @connection.emit 'connect'
 
       @defineAdaptorEvent eventName: 'message'
+
+    message: (data) ->
+      @connector.message(data)
