@@ -1,14 +1,8 @@
 # Events
 
-## update
-
-This is a meta-event that will be triggered when any of the other events are. If
-you're looking for specific information, you might wish to subscribe to one of
-the specific events instead.
-
 ## message(channel, data)
 
-Gets triggered when Skynet has a message notification to send.
+Gets triggered when Skynet sends a message notification.
 
 ##### Params
 
