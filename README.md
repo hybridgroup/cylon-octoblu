@@ -14,6 +14,18 @@ For more information about Cylon, check out our repo at https://github.com/hybri
 
 Install the module with: `npm install cylon-skynet`
 
+First, you need to register a device on the Skynet network. You can do this with a curl command similar to this one:
+
+```
+curl -X POST -d "name=arduino&led=off" http://skynet.im/devices
+```
+
+This will return the new registration information for the device, most importantly the `uuid` and `token`:
+
+```
+=> {"name":"arduino","led":"off","uuid":"8220cff0-2939-11e3-88cd-0b8e5fdfd7d4","timestamp":1380481272431,"token":"1yw0nfc54okcsor2tfqqsuvnrcf2yb9","online":false,"_id":"524878f8cc12f0877f000003"}
+```
+
 ## Examples
 
 ### JavaScript
@@ -31,7 +43,6 @@ Cylon.robot({
 
   work: function(my) {
     my.skynet.on('message', function(channel, data) {
-      var data = JSON.parse(data);
       if(data.red == 'on') {
         my.led.turnOn()
       }
@@ -58,7 +69,6 @@ Cylon.robot
 
   work: (my) ->
     my.skynet.on 'message', (channel, data) ->
-      data = JSON.parse(data)
       if data.red is 'on'
         my.led.turnOn()
       else if data.red is 'off'
