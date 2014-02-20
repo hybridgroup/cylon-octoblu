@@ -34,16 +34,23 @@
         extraParams = opts.extraParams || {};
         this.uuid = extraParams.uuid;
         this.token = extraParams.token;
+        this.host = extraParams.host || "http://skynet.im";
+        this.portNumber = extraParams.portNumber || 80;
       }
 
       Skynet.prototype.connect = function(callback) {
+        var _this = this;
         this.connector = SkynetLib.createConnection({
           "uuid": this.uuid,
           "token": this.token,
-          "protocol": "mqtt"
+          "protocol": "mqtt",
+          "host": this.host,
+          "port": this.portNumber
         });
         this.connector.on('ready', function() {
-          return Skynet.__super__.connect.apply(this, arguments);
+          Logger.info("Connecting to adaptor '" + _this.name + "'...");
+          callback(null);
+          return _this.connection.emit('connect');
         });
         return this.defineAdaptorEvent({
           eventName: 'message'

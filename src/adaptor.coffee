@@ -22,14 +22,20 @@ namespace 'Cylon.Adaptors', ->
       extraParams = opts.extraParams or {}
       @uuid = extraParams.uuid
       @token = extraParams.token
+      @host = extraParams.host or "http://skynet.im"
+      @portNumber = extraParams.portNumber or 80
 
     connect: (callback) ->
       @connector = SkynetLib.createConnection
         "uuid": @uuid,
         "token": @token,
-        "protocol": "mqtt"
+        "protocol": "mqtt",
+        "host": @host,
+        "port": @portNumber
       
-      @connector.on 'ready', ->
-        super
+      @connector.on 'ready', =>
+        Logger.info "Connecting to adaptor '#{@name}'..."
+        (callback)(null)
+        @connection.emit 'connect'
 
       @defineAdaptorEvent eventName: 'message'

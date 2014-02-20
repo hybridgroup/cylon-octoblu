@@ -11,6 +11,8 @@
 namespace = require 'node-namespace'
 
 require 'cylon'
+require './adaptor'
+require './driver'
 
 module.exports =
   adaptor: (args...) ->

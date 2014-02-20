@@ -9,7 +9,8 @@ Cylon.robot
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' }
 
   work: (my) ->
-    my.skynet.on 'message', (channel, data) ->
+    Logger.info "connected..."
+    my.connections['skynet'].on 'message', (channel, data) ->
       console.log(data)
       data = JSON.parse(data)
       if data.red is 'on'

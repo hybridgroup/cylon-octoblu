@@ -16,6 +16,10 @@
 
   require('cylon');
 
+  require('./adaptor');
+
+  require('./driver');
+
   module.exports = {
     adaptor: function() {
       var args;
