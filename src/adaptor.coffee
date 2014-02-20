@@ -38,7 +38,9 @@ namespace 'Cylon.Adaptors', ->
         (callback)(null)
         @connection.emit 'connect'
 
-      @defineAdaptorEvent eventName: 'message'
+      @connector.on 'message', (channel, data) =>
+        data = JSON.parse(data)
+        @connection.emit 'message', channel, data
 
     message: (data) ->
       @connector.message(data)

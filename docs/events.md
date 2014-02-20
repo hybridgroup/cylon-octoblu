@@ -7,7 +7,7 @@ Gets triggered when Skynet sends a message notification.
 ##### Params
 
 - **channel** - the channel UUID that the message was sent to.
-- **data** - the JSON data that the is the message itself.
+- **data** - the hash with the message data.
 
 ## connect
 

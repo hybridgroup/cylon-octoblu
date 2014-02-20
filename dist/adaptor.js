@@ -52,8 +52,9 @@
           callback(null);
           return _this.connection.emit('connect');
         });
-        return this.defineAdaptorEvent({
-          eventName: 'message'
+        return this.connector.on('message', function(channel, data) {
+          data = JSON.parse(data);
+          return _this.connection.emit('message', channel, data);
         });
       };
 
