@@ -38,12 +38,15 @@
         this.portNumber = extraParams.portNumber || 80;
       }
 
+      Skynet.prototype.commands = function() {
+        return ['message', 'subscribe'];
+      };
+
       Skynet.prototype.connect = function(callback) {
         var _this = this;
         this.connector = SkynetLib.createConnection({
           "uuid": this.uuid,
           "token": this.token,
-          "protocol": "mqtt",
           "host": this.host,
           "port": this.portNumber
         });
@@ -53,13 +56,16 @@
           return _this.connection.emit('connect');
         });
         return this.connector.on('message', function(channel, data) {
-          data = JSON.parse(data);
           return _this.connection.emit('message', channel, data);
         });
       };
 
       Skynet.prototype.message = function(data) {
         return this.connector.message(data);
+      };
+
+      Skynet.prototype.subscribe = function(data) {
+        return this.connector.subscribe(data);
       };
 
       return Skynet;

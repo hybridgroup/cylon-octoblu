@@ -25,11 +25,12 @@ namespace 'Cylon.Adaptors', ->
       @host = extraParams.host or "http://skynet.im"
       @portNumber = extraParams.portNumber or 80
 
+    commands: -> ['message', 'subscribe']
+
     connect: (callback) ->
       @connector = SkynetLib.createConnection
         "uuid": @uuid,
         "token": @token,
-        "protocol": "mqtt",
         "host": @host,
         "port": @portNumber
       
@@ -39,8 +40,10 @@ namespace 'Cylon.Adaptors', ->
         @connection.emit 'connect'
 
       @connector.on 'message', (channel, data) =>
-        data = JSON.parse(data)
         @connection.emit 'message', channel, data
 
     message: (data) ->
       @connector.message(data)
+
+    subscribe: (data) ->
+      @connector.subscribe(data)
