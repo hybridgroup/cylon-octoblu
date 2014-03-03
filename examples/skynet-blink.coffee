@@ -10,11 +10,11 @@ Cylon.robot
 
   work: (my) ->
     Logger.info "connected..."
-    my.skynet.on 'message', (channel, data) ->
+    my.skynet.on 'message', (data) ->
       Logger.info(data)
-      if data.red is 'on'
+      if data.message.red is 'on'
         my.led.turnOn()
-      else if data.red is 'off'
+      else if data.message.red is 'off'
         my.led.turnOff()
 
 .start()

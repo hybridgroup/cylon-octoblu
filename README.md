@@ -42,11 +42,11 @@ Cylon.robot({
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' },
 
   work: function(my) {
-    my.skynet.on('message', function(channel, data) {
-      if(data.red == 'on') {
+    my.skynet.on('message', function(data) {
+      if(data.message.red == 'on') {
         my.led.turnOn()
       }
-      else if(data.red == 'off') {
+      else if(data.message.red == 'off') {
         my.led.turnOff()
       }
     });
@@ -68,10 +68,10 @@ Cylon.robot
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' }
 
   work: (my) ->
-    my.skynet.on 'message', (channel, data) ->
-      if data.red is 'on'
+    my.skynet.on 'message', (data) ->
+      if data.message.red is 'on'
         my.led.turnOn()
-      else if data.red is 'off'
+      else if data.message.red is 'off'
         my.led.turnOff()
 
 .start()
