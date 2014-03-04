@@ -1,6 +1,6 @@
 # Events
 
-## message(channel, data)
+## message(data)
 
 Gets triggered when Skynet sends a message notification.
 
