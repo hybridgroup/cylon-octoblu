@@ -2,7 +2,7 @@
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
 
-This repository contains the Cylon adaptor for the Skynet ([http://skynet.im](http://skynet.im)) machine to machine open source software.
+This repository contains the Cylon adaptor for the Skynet ([http://skynet.im](http://skynet.im)) machine to machine instant messaging open source software.
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
@@ -97,6 +97,8 @@ Thank you!
   * For git help see [progit](http://git-scm.com/book) which is an awesome (and free) book on git
 
 ## Release History
+
+Version 0.2.0 - Release for Cylon 0.11.0, refactor to pure JavaScript, update to latest messages notifications format on Skynet
 
 Version 0.1.0 - Initial release
 
