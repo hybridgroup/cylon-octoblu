@@ -9,24 +9,15 @@ Cylon.robot({
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' },
 
   work: function(my) {
-    Logger.info("Connecting to Skynet...");
-
-    my.skynet.on('notReady', function(data) {
-      console.log("Connection to Skynet Failed");
-      console.log("Verify UUID and Token, then try again!");
-    });
-
-    my.skynet.on('ready', function(data) {
-      Logger.info("Skynet is listening...");
-      my.skynet.on('message', function(data) {
-        Logger.info(data);
-        if(data.message.red == 'on') {
-          my.led.turnOn()
-        }
-        else if(data.message.red == 'off') {
-          my.led.turnOff()
-        }
-      });
+    Logger.info("connected...");
+    my.skynet.on('message', function(data) {
+      Logger.info(data);
+      if(data.message.red == 'on') {
+        my.led.turnOn()
+      }
+      else if(data.message.red == 'off') {
+        my.led.turnOff()
+      }
     });
   }
 }).start();
