@@ -1,7 +1,6 @@
 "use strict";
 
-var namespace = require('node-namespace'),
-    skynet = source("cylon-skynet");
+var skynet = source("cylon-skynet");
 
 describe("Cylon.Skynet", function() {
   it("can register the adaptor and driver", function() {
