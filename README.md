@@ -26,9 +26,7 @@ This will return the new registration information for the device, most important
 => {"name":"arduino","led":"off","uuid":"8220cff0-2939-11e3-88cd-0b8e5fdfd7d4","timestamp":1380481272431,"token":"1yw0nfc54okcsor2tfqqsuvnrcf2yb9","online":false,"_id":"524878f8cc12f0877f000003"}
 ```
 
-## Examples
-
-### JavaScript
+## Example
 
 ```javascript
 var Cylon = require('cylon');
@@ -52,29 +50,6 @@ Cylon.robot({
     });
   }
 }).start();
-```
-
-### CoffeeScript
-
-```ruby
-Cylon = require 'cylon'
-
-Cylon.robot
-  connections: [
-    { name: 'arduino', adaptor: 'firmata', port: '/dev/ttyACM0' },
-    { name: 'skynet', adaptor: 'skynet', uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf", token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr" }
-  ]
-
-  device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' }
-
-  work: (my) ->
-    my.skynet.on 'message', (data) ->
-      if data.message.red is 'on'
-        my.led.turnOn()
-      else if data.message.red is 'off'
-        my.led.turnOff()
-
-.start()
 ```
 
 ## Documentation
