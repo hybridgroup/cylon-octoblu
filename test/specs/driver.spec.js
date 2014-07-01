@@ -1,9 +1,14 @@
 "use strict";
 
+var Cylon = require('cylon');
+
 var Driver = source('driver');
 
 describe('Cylon.Drivers.Skynet', function() {
-  var skynet = new Driver({ device: {} });
+  var driver = new Driver({ device: {} });
 
-  it("exposes a 'commands' method exposing all available commands");
+  it("subclasses Cylon.Driver", function() {
+    expect(driver).to.be.an.instanceOf(Cylon.Driver);
+    expect(driver).to.be.an.instanceOf(Driver);
+  });
 });

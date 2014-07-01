@@ -1,19 +1,40 @@
 "use strict";
 
-var skynet = source("cylon-skynet");
+var module = source("cylon-skynet");
 
-describe("Cylon.Skynet", function() {
-  it("can register the adaptor and driver", function() {
-    skynet.register.should.be.a('function');
+var Adaptor = source('adaptor'),
+    Driver = source('driver');
+
+describe("cylon-skynet", function() {
+  describe("#register", function() {
+    var bot, adaptor, driver;
+
+    beforeEach(function() {
+      bot = {}
+      adaptor = bot.registerAdaptor = spy();
+      driver = bot.registerDriver = spy();
+
+      module.register(bot);
+    });
+
+    it("registers the 'skynet' adaptor with the robot", function() {
+      expect(adaptor).to.be.calledWith('cylon-skynet', 'skynet');
+    });
+
+    it("registers the 'skynet' driver with the robot", function() {
+      expect(driver).to.be.calledWith('cylon-skynet', 'skynet');
+    });
   });
 
-  it("can create adaptor", function() {
-    skynet.adaptor.should.be.a('function');
-    expect(skynet.adaptor()).to.be.a('object');
+  describe("#adaptor", function() {
+    it("returns a new instance of the Adaptor class", function() {
+      expect(module.adaptor()).to.be.an.instanceOf(Adaptor);
+    });
   });
 
-  it("can create driver", function() {
-    skynet.driver.should.be.a('function');
-    expect(skynet.driver({ device: {} })).to.be.a('object');
+  describe("#driver", function() {
+    it("returns a new instance of the Driver class", function() {
+      expect(module.driver({ device: {} })).to.be.an.instanceOf(Driver);
+    });
   });
 });
