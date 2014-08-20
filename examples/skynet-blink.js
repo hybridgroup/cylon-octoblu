@@ -9,9 +9,9 @@ Cylon.robot({
   device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' },
 
   work: function(my) {
-    Logger.info("connected...");
+    console.log("connected...");
     my.skynet.on('message', function(data) {
-      Logger.info(data);
+      console.log(data);
       if(data.message.red == 'on') {
         my.led.turnOn()
       }
