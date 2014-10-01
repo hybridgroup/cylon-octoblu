@@ -1,6 +1,6 @@
 {
   "name": "cylon-skynet",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "lib/cylon-skynet.js",
   "description": "Cylon adaptor for the Skynet open source machine to machine protocol",
   "homepage": "http://cylonjs.com",
@@ -24,11 +24,11 @@
   },
 
   "peerDependencies": {
-    "cylon": ">= 0.18.0 < 1"
+    "cylon": ">= 0.19.0 < 1"
   },
 
   "dependencies": {
-    "cylon":  "~0.18.0",
+    "cylon":  "~0.19.0",
     "skynet": "latest"
   }
 }
