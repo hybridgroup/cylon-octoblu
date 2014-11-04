@@ -23,13 +23,11 @@ describe('Cylon.Adaptors.Skynet', function() {
 
     beforeEach(function() {
       custom = new Adaptor({
-        extraParams: {
-          uuid: 'uuid',
-          token: 'token',
-          host: 'host',
-          portNumber: 3000,
-          forceNew: false
-        }
+        uuid: 'uuid',
+        token: 'token',
+        host: 'host',
+        portNumber: 3000,
+        forceNew: false
       });
     });
 
@@ -82,13 +80,11 @@ describe('Cylon.Adaptors.Skynet', function() {
 
     beforeEach(function() {
       adaptor = new Adaptor({
-        extraParams: {
-          uuid: 'uuid',
-          token: 'token',
-          host: 'host',
-          portNumber: 3000,
-          forceNew: false
-        }
+        uuid: 'uuid',
+        token: 'token',
+        host: 'host',
+        portNumber: 3000,
+        forceNew: false
       });
 
       adaptor.connection = { emit: spy() };

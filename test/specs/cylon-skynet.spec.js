@@ -6,23 +6,15 @@ var Adaptor = source('adaptor'),
     Driver = source('driver');
 
 describe("cylon-skynet", function() {
-  describe("#register", function() {
-    var bot, adaptor, driver;
-
-    beforeEach(function() {
-      bot = {}
-      adaptor = bot.registerAdaptor = spy();
-      driver = bot.registerDriver = spy();
-
-      module.register(bot);
+  describe("#adaptors", function() {
+    it('is an array of supplied adaptors', function() {
+      expect(module.adaptors).to.be.eql(['skynet']);
     });
+  });
 
-    it("registers the 'skynet' adaptor with the robot", function() {
-      expect(adaptor).to.be.calledWith('cylon-skynet', 'skynet');
-    });
-
-    it("registers the 'skynet' driver with the robot", function() {
-      expect(driver).to.be.calledWith('cylon-skynet', 'skynet');
+  describe("#drivers", function() {
+    it('is an array of supplied drivers', function() {
+      expect(module.drivers).to.be.eql(['skynet']);
     });
   });
 
