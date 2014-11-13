@@ -87,7 +87,7 @@ describe('Cylon.Adaptors.Skynet', function() {
         forceNew: false
       });
 
-      adaptor.connection = { emit: spy() };
+      adaptor.emit = spy();
 
       connector = new EventEmitter();
       callback = spy();
@@ -128,7 +128,7 @@ describe('Cylon.Adaptors.Skynet', function() {
       });
 
       it("emits the 'notReady' event", function() {
-        expect(adaptor.connection.emit).to.be.calledWith('notReady', 'data');
+        expect(adaptor.emit).to.be.calledWith('notReady', 'data');
       });
 
       it("triggers the callback", function() {
@@ -146,7 +146,7 @@ describe('Cylon.Adaptors.Skynet', function() {
       });
 
       it("emits the 'ready' event", function() {
-        expect(adaptor.connection.emit).to.be.calledWith('ready', 'data');
+        expect(adaptor.emit).to.be.calledWith('ready', 'data');
       });
 
       it("triggers the callback", function() {
@@ -164,7 +164,7 @@ describe('Cylon.Adaptors.Skynet', function() {
       });
 
       it("emits the 'message' event", function() {
-        expect(adaptor.connection.emit).to.be.calledWith('message', 'data');
+        expect(adaptor.emit).to.be.calledWith('message', 'data');
       });
     });
   });
