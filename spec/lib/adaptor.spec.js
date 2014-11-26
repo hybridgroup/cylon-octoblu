@@ -118,10 +118,6 @@ describe('Cylon.Adaptors.Skynet', function() {
       expect(connector.listeners('ready').length).to.be.eql(1);
     });
 
-    it("attaches a #message listener", function() {
-      expect(connector.listeners('message').length).to.be.eql(1);
-    });
-
     describe("triggering the 'notReady' listener", function() {
       beforeEach(function() {
         connector.emit('notReady', 'data');
@@ -145,6 +141,10 @@ describe('Cylon.Adaptors.Skynet', function() {
         connector.emit('ready', 'data');
       });
 
+      it("attaches a #message listener", function() {
+        expect(connector.listeners('message').length).to.be.eql(1);
+      });
+
       it("emits the 'ready' event", function() {
         expect(adaptor.emit).to.be.calledWith('ready', 'data');
       });
@@ -156,15 +156,15 @@ describe('Cylon.Adaptors.Skynet', function() {
       it("removes the ready listener", function() {
         expect(connector.listeners('ready').length).to.be.eql(0);
       });
-    });
 
-    describe("triggering the 'message' listener", function() {
-      beforeEach(function() {
-        connector.emit('message', 'data');
-      });
+      describe("triggering the 'message' listener", function() {
+        beforeEach(function() {
+          connector.emit('message', 'data');
+        });
 
-      it("emits the 'message' event", function() {
-        expect(adaptor.emit).to.be.calledWith('message', 'data');
+        it("emits the 'message' event", function() {
+          expect(adaptor.emit).to.be.calledWith('message', 'data');
+        });
       });
     });
   });
