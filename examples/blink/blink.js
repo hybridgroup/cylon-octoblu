@@ -1,8 +1,9 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
+Cylon.robot({
   connections: {
     arduino: { adaptor: 'firmata', port: '/dev/ttyACM0', module: 'cylon-firmata' },
+
     skynet: {
       adaptor: 'skynet',
       uuid: "UUID",
@@ -11,7 +12,9 @@ cylon.robot({
     }
   },
 
-  device: { name: 'led', driver: 'led', pin: 13, connection: 'arduino' },
+  devices: {
+    led: { driver: 'led', pin: 13, connection: 'arduino' }
+  },
 
   work: function(my) {
     my.skynet.subscribe({
