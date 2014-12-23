@@ -12,23 +12,13 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 For more information about Cylon, check out our repo at https://github.com/hybridgroup/cylon
 
-## Getting Started
+## How to Install
 
-Install the module with: `npm install cylon-skynet`
+Install the module with:
 
-First, you need to register a device on the Skynet network. You can do this with a curl command similar to this one:
+    $ npm install cylon-skynet
 
-```
-curl -X POST -d "name=arduino&led=off" http://skynet.im/devices
-```
-
-This will return the new registration information for the device, most importantly the `uuid` and `token`:
-
-```
-=> {"name":"arduino","led":"off","uuid":"8220cff0-2939-11e3-88cd-0b8e5fdfd7d4","timestamp":1380481272431,"token":"1yw0nfc54okcsor2tfqqsuvnrcf2yb9","online":false,"_id":"524878f8cc12f0877f000003"}
-```
-
-## Example
+## How to Use
 
 ```javascript
 var Cylon = require('cylon');
@@ -56,7 +46,20 @@ Cylon.robot({
 }).start();
 ```
 
+## How to Connect
+
+First, you need to register a device on the Skynet network. You can do this with a curl command similar to this one:
+
+    curl -X POST -d "name=arduino&led=off" http://skynet.im/devices
+
+This will return the new registration information for the device, most importantly the `uuid` and `token`:
+
+
+    => {"name":"arduino","led":"off","uuid":"8220cff0-2939-11e3-88cd-0b8e5fdfd7d4","timestamp":1380481272431,"token":"1yw0nfc54okcsor2tfqqsuvnrcf2yb9","online":false,"_id":"524878f8cc12f0877f000003"}
+
+
 ## Documentation
+
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
 Thank you!
