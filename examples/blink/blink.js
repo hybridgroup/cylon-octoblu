@@ -1,19 +1,15 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    arduino: { adaptor: 'firmata', port: '/dev/ttyACM0', module: 'cylon-firmata' },
-
-    skynet: {
-      adaptor: 'skynet',
-      uuid: "UUID",
-      token: "TOKEN",
-      module: 'cylon-skynet'
-    }
+    arduino: { adaptor: "firmata", port: "/dev/ttyACM0" },
+    skynet: { adaptor: "skynet", uuid: "UUID", token: "TOKEN" }
   },
 
   devices: {
-    led: { driver: 'led', pin: 13, connection: 'arduino' }
+    led: { driver: "led", pin: 13, connection: "arduino" }
   },
 
   work: function(my) {
@@ -22,11 +18,11 @@ Cylon.robot({
       token: "TOKEN"
     });
 
-    my.skynet.on('message', function(data) {
+    my.skynet.on("message", function(data) {
       console.log("data: ", data);
-      if(data.payload.red === 'on') {
+      if(data.payload.red === "on") {
         my.led.turnOn();
-      } else if(data.payload.red === 'off') {
+      } else if(data.payload.red === "off") {
         my.led.turnOff();
       }
     });
