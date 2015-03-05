@@ -2,7 +2,7 @@
 "use strict";
 
 var Cylon = require("cylon"),
-    Skynet = require("skynet"),
+    Skynet = require("meshblu"),
     EventEmitter = require("events").EventEmitter;
 
 var Adaptor = source("adaptor");
