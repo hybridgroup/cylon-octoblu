@@ -1,37 +1,34 @@
-Cylon = require 'cylon'
+# SkyNet cURL requests to create and message devices:
+
+# curl -X POST http://meshblu.octoblu.com/devices
+
+# curl -X POST http://meshblu.octoblu.com/messages \
+#   -d '{"devices": "DEVICE_ID", "payload": {"red":"on"}}' \
+#   --header "meshblu_auth_uuid: SKYNET_TOKEN" \
+#   --header "meshblu_auth_token: SKYNET_UUID"
+
+# curl -X POST http://meshblu.octoblu.com/messages \
+#   -d '{"devices": "DEVICE_ID", "payload": {"red":"off"}}' \
+#   --header "meshblu_auth_uuid: SKYNET_TOKEN" \
+#   --header "meshblu_auth_token: SKYNET_UUID"
+
+Cylon = require "cylon"
 
 Cylon.robot
   connections:
-    arduino:
-      adaptor: 'firmata'
-      port: '/dev/ttyACM0'
-      module: 'cylon-arduino'
-
-    skynet:
-      adaptor: 'skynet',
-      uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf"
-      token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr"
-      module: "cylon-skynet"
+    arduino: { adaptor: "firmata", port: "/dev/tty.usbmodem1411" }
+    skynet: { adaptor: "skynet", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
 
   devices:
-    led:
-      driver: 'led'
-      pin: 13
-      connection: 'arduino'
+    led: { driver: 'led', pin: 13, connection: 'arduino' }
 
   work: (my) ->
-    console.log "connected..."
+    my.skynet.on "message", (data) ->
+      console.log data
 
-    my.skynet.subscribe
-      uuid: "742401f1-87a4-11e3-834d-670dadc0ddbf"
-      token: "xjq9h3yzhemf5hfrme8y08fh0sm50zfr"
-
-    my.skynet.on 'message', (data) ->
-      console.log(data)
-
-      if data.payload.red is 'on'
+      if data.payload.red is "on"
         my.led.turnOn()
-      else if data.payload.red is 'off'
+      else if data.payload.red is "off"
         my.led.turnOff()
 
-Cylon.start()
+.start()

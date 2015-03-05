@@ -1,11 +1,25 @@
+// SkyNet cURL requests to create and message devices:
+
+// curl -X POST http://meshblu.octoblu.com/devices
+
+// curl -X POST http://meshblu.octoblu.com/messages \
+//   -d '{"devices": "DEVICE_ID", "payload": {"red":"on"}}' \
+//   --header "meshblu_auth_uuid: SKYNET_TOKEN" \
+//   --header "meshblu_auth_token: SKYNET_UUID"
+
+// curl -X POST http://meshblu.octoblu.com/messages \
+//   -d '{"devices": "DEVICE_ID", "payload": {"red":"off"}}' \
+//   --header "meshblu_auth_uuid: SKYNET_TOKEN" \
+//   --header "meshblu_auth_token: SKYNET_UUID"
+
 "use strict";
 
 var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    arduino: { adaptor: "firmata", port: "/dev/ttyACM0" },
-    skynet: { adaptor: "skynet", uuid: "UUID", token: "TOKEN" }
+    arduino: { adaptor: "firmata", port: "/dev/tty.usbmodem1411" },
+    skynet: { adaptor: "skynet", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
   },
 
   devices: {
@@ -13,16 +27,12 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.skynet.subscribe({
-      uuid: "DEVICE_UUID",
-      token: "TOKEN"
-    });
-
     my.skynet.on("message", function(data) {
-      console.log("data: ", data);
-      if(data.payload.red === "on") {
+      console.log(data);
+
+      if (data.payload.red === "on") {
         my.led.turnOn();
-      } else if(data.payload.red === "off") {
+      } else if (data.payload.red === "off") {
         my.led.turnOff();
       }
     });
