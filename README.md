@@ -16,7 +16,7 @@ For more information about Cylon, check out our repo at https://github.com/hybri
 
 Install the module with:
 
-    $ npm install cylon-skynet
+    $ npm install cylon cylon-skynet
 
 ## How to Use
 
