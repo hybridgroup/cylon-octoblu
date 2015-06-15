@@ -1,10 +1,9 @@
-// jshint expr:true
 "use strict";
 
-var skynet = source("cylon-skynet");
+var skynet = lib("cylon-skynet");
 
-var Adaptor = source("adaptor"),
-    Driver = source("driver");
+var Adaptor = lib("adaptor"),
+    Driver = lib("driver");
 
 describe("cylon-skynet", function() {
   describe("#adaptors", function() {
