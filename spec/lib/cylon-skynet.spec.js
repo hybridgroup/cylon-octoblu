@@ -1,6 +1,6 @@
 "use strict";
 
-var skynet = lib("cylon-skynet");
+var skynet = lib("../");
 
 var Adaptor = lib("adaptor"),
     Driver = lib("driver");
