@@ -38,6 +38,6 @@
 
   "dependencies": {
     "cylon":  "~1.1.0",
-    "meshblu": "latest"
+    "meshblu": "1.29.0"
   }
 }
