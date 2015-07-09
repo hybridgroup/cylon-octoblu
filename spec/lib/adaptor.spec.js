@@ -1,11 +1,10 @@
-// jshint expr:true
 "use strict";
 
 var Cylon = require("cylon"),
     Skynet = require("meshblu"),
     EventEmitter = require("events").EventEmitter;
 
-var Adaptor = source("adaptor");
+var Adaptor = lib("adaptor");
 
 describe("Cylon.Adaptors.Skynet", function() {
   var adaptor;

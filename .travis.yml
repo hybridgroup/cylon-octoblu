@@ -1,5 +1,8 @@
 language: node_js
-node_js: '0.10'
+node_js:
+  - '0.10'
+  - '0.12'
+  - 'iojs'
 before_install:
   - "mkdir -p ~/.npm"
 install:
@@ -8,4 +11,4 @@ install:
   - npm install -g jshint istanbul codeclimate-test-reporter
 script:
   - make ci
-  - CODECLIMATE_REPO_TOKEN=57315da67cedbaa4d6f3da3837367918244216e57412b39a8188b9102af7ca33 codeclimate < coverage/lcov.info
+  - CODECLIMATE_REPO_TOKEN=57315da67cedbaa4d6f3da3837367918244216e57412b39a8188b9102af7ca33 codeclimate-test-reporter < coverage/lcov.info

@@ -1,15 +1,7 @@
-/*
- * cylon-skynet
- * http://cylonjs.com
- *
- * Copyright (c) 2014 The Hybrid Group
- * Licensed under the Apache 2.0 license.
-*/
-
 "use strict";
 
-var Adaptor = require("./adaptor"),
-    Driver = require("./driver");
+var Adaptor = require("./lib/adaptor"),
+    Driver = require("./lib/driver");
 
 module.exports = {
   adaptors: ["skynet"],

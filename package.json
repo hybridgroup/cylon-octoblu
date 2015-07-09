@@ -1,8 +1,7 @@
 {
   "name": "cylon-skynet",
-  "version": "0.11.0",
-  "main": "lib/cylon-skynet.js",
-  "description": "Cylon adaptor for the Skynet open source machine to machine protocol",
+  "version": "0.13.0",
+  "description": "Cylon.js adaptor for the Skynet open source machine to machine protocol",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-skynet/issues",
 
@@ -13,22 +12,32 @@
     "url": "https://github.com/hybridgroup/cylon-skynet"
   },
 
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
+
+  "keywords": [
+    "cylon",
+    "cylonjs",
+    "cylons",
+    "robot",
+    "robots",
+    "robotics",
+    "iot",
+    "hardware",
+    "skynet",
+    "skynet.im",
+    "octoblu"
+  ],
 
   "devDependencies": {
     "sinon-chai": "~2.4.0",
     "chai":       "~1.7.2",
     "mocha":      "~1.12.1",
     "sinon":      "~1.7.3",
-    "jshint":     "~2.4.4"
-  },
-
-  "peerDependencies": {
-    "cylon": ">= 0.22.0 < 1"
+    "eslint":     "0.22.1"
   },
 
   "dependencies": {
-    "cylon":  "~0.22.0",
+    "cylon":  "~1.1.0",
     "meshblu": "latest"
   }
 }

@@ -18,7 +18,7 @@ cover:
 	@istanbul cover $(BIN)/_mocha $(TEST_FILES) --report lcovonly -- -R spec
 
 lint:
-	@jshint $(FILES)
+	@$(BIN)/eslint index.js lib spec examples
 
 ci: lint cover
 
