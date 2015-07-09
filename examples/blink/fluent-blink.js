@@ -11,14 +11,16 @@ Cylon
     token: "SKYNET_TOKEN"
   })
   .device("led", { driver: "led", pin: 13, connection: "arduino" })
-  .on("ready", function(my) {
-    my.skynet.on("message", function(data) {
+  .on("ready", function(bot) {
+    console.log("connected...");
+
+    bot.skynet.on("message", function(data) {
       console.log(data);
 
       if (data.payload.red === "on") {
-        my.led.turnOn();
+        bot.led.turnOn();
       } else if (data.payload.red === "off") {
-        my.led.turnOff();
+        bot.led.turnOff();
       }
     });
   })

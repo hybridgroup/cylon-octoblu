@@ -1,3 +1,5 @@
+"use strict";
+
 // SkyNet cURL requests to create and message devices:
 
 // curl -X POST http://meshblu.octoblu.com/devices
@@ -11,8 +13,6 @@
 //   -d '{"devices": "DEVICE_ID", "payload": {"red":"off"}}' \
 //   --header "meshblu_auth_uuid: SKYNET_TOKEN" \
 //   --header "meshblu_auth_token: SKYNET_UUID"
-
-"use strict";
 
 var Cylon = require("cylon");
 
@@ -29,7 +29,6 @@ Cylon.robot({
   work: function(my) {
     my.skynet.on("message", function(data) {
       console.log(data);
-
       if (data.payload.red === "on") {
         my.led.turnOn();
       } else if (data.payload.red === "off") {
