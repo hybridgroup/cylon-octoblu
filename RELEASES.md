@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.14.0 - Use Cylon 1.2.0
+
 Version 0.13.0 - Use Cylon 1.1.0
 
 Version 0.12.0 - Compatibility with Cylon 1.0.0

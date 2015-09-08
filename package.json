@@ -1,6 +1,6 @@
 {
   "name": "cylon-skynet",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Cylon.js adaptor for the Skynet open source machine to machine protocol",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-skynet/issues",
@@ -37,7 +37,7 @@
   },
 
   "dependencies": {
-    "cylon":  "~1.1.0",
+    "cylon":  "~1.2.0",
     "meshblu": "1.29.0"
   }
 }
