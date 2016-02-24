@@ -1,32 +1,32 @@
 "use strict";
 
-var skynet = lib("../");
+var octoblu = lib("../");
 
 var Adaptor = lib("adaptor"),
     Driver = lib("driver");
 
-describe("cylon-skynet", function() {
+describe("cylon-octoblu", function() {
   describe("#adaptors", function() {
     it("is an array of supplied adaptors", function() {
-      expect(skynet.adaptors).to.be.eql(["skynet"]);
+      expect(octoblu.adaptors).to.be.eql(["octoblu"]);
     });
   });
 
   describe("#drivers", function() {
     it("is an array of supplied drivers", function() {
-      expect(skynet.drivers).to.be.eql(["skynet"]);
+      expect(octoblu.drivers).to.be.eql(["octoblu"]);
     });
   });
 
   describe("#adaptor", function() {
     it("returns a new instance of the Adaptor class", function() {
-      expect(skynet.adaptor()).to.be.an.instanceOf(Adaptor);
+      expect(octoblu.adaptor()).to.be.an.instanceOf(Adaptor);
     });
   });
 
   describe("#driver", function() {
     it("returns a new instance of the Driver class", function() {
-      expect(skynet.driver({ adaptor: {} })).to.be.an.instanceOf(Driver);
+      expect(octoblu.driver({ adaptor: {} })).to.be.an.instanceOf(Driver);
     });
   });
 });

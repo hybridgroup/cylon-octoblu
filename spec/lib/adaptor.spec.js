@@ -1,12 +1,12 @@
 "use strict";
 
 var Cylon = require("cylon"),
-    Skynet = require("meshblu"),
+    Octoblu = require("meshblu"),
     EventEmitter = require("events").EventEmitter;
 
 var Adaptor = lib("adaptor");
 
-describe("Cylon.Adaptors.Skynet", function() {
+describe("Cylon.Adaptors.Octoblu", function() {
   var adaptor;
 
   beforeEach(function() {
@@ -43,8 +43,8 @@ describe("Cylon.Adaptors.Skynet", function() {
       expect(custom.host).to.be.eql("host");
     });
 
-    it("defaults @host to skynet.im", function() {
-      expect(adaptor.host).to.be.eql("http://skynet.im");
+    it("defaults @host to meshblu.octoblu.com", function() {
+      expect(adaptor.host).to.be.eql("http://meshblu.octoblu.com");
     });
 
     it("sets @portNumber to the provided value", function() {
@@ -65,7 +65,7 @@ describe("Cylon.Adaptors.Skynet", function() {
   });
 
   describe("#commands", function() {
-    it("is an array of Skynet commands", function() {
+    it("is an array of Octoblu commands", function() {
       var commands = adaptor.commands;
       expect(commands).to.be.a("array");
 
@@ -92,16 +92,16 @@ describe("Cylon.Adaptors.Skynet", function() {
       connector = new EventEmitter();
       callback = spy();
 
-      stub(Skynet, "createConnection").returns(connector);
+      stub(Octoblu, "createConnection").returns(connector);
       adaptor.connect(callback);
     });
 
     afterEach(function() {
-      Skynet.createConnection.restore();
+      Octoblu.createConnection.restore();
     });
 
-    it("creates a Skynet connection", function() {
-      expect(Skynet.createConnection).to.be.calledWith({
+    it("creates a Octoblu connection", function() {
+      expect(Octoblu.createConnection).to.be.calledWith({
         uuid: "uuid",
         token: "token",
         host: "host",
