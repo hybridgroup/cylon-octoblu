@@ -1,15 +1,15 @@
 {
-  "name": "cylon-skynet",
+  "name": "cylon-octoblu",
   "version": "0.14.0",
-  "description": "Cylon.js adaptor for the Skynet open source machine to machine protocol",
+  "description": "Cylon.js adaptor for the Octoblu open source machine to machine protocol",
   "homepage": "http://cylonjs.com",
-  "bugs": "https://github.com/hybridgroup/cylon-skynet/issues",
+  "bugs": "https://github.com/hybridgroup/cylon-octoblu/issues",
 
   "author": "The Hybrid Group <cylonjs@hybridgroup.com>",
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/hybridgroup/cylon-skynet"
+    "url": "https://github.com/hybridgroup/cylon-octoblu"
   },
 
   "license": "Apache-2.0",
@@ -25,7 +25,8 @@
     "hardware",
     "skynet",
     "skynet.im",
-    "octoblu"
+    "octoblu",
+    "meshblu"
   ],
 
   "devDependencies": {
@@ -37,7 +38,7 @@
   },
 
   "dependencies": {
-    "cylon":  "~1.2.0",
-    "meshblu": "1.29.0"
+    "cylon":  "^1.2.0",
+    "meshblu": "^1.29.0"
   }
 }

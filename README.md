@@ -1,14 +1,14 @@
-# Cylon.js For Skynet
+# Cylon.js For Octoblu
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics, physical computing, and the Internet of Things (IoT).
 
-This repository contains the Cylon adaptor for the Skynet ([http://skynet.im](http://skynet.im)) machine to machine instant messaging open source software.
+This repository contains the Cylon adaptor for the Octoblu ([http://meshblu.octoblu.com](http://meshblu.octoblu.com)) machine to machine instant messaging open source software.
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
 Want to use the Go programming language to power your robots? Check out our sister project Gobot (http://gobot.io).
 
-[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-skynet.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-skynet) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-skynet/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-skynet) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-skynet/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-skynet)
+[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-octoblu.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-octoblu) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-octoblu/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-octoblu) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-octoblu/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-octoblu)
 
 For more information about Cylon, check out our repo at https://github.com/hybridgroup/cylon
 
@@ -16,7 +16,7 @@ For more information about Cylon, check out our repo at https://github.com/hybri
 
 Install the module with:
 
-    $ npm install cylon cylon-skynet
+    $ npm install cylon cylon-octoblu
 
 ## How to Use
 
@@ -26,7 +26,7 @@ var Cylon = require("cylon");
 Cylon.robot({
   connections: {
     arduino: { adaptor: "firmata", port: "/dev/tty.usbmodem1411" },
-    skynet: { adaptor: "skynet", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
+    octoblu: { adaptor: "octoblu", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
   },
 
   devices: {
@@ -34,7 +34,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.skynet.on("message", function(data) {
+    my.octoblu.on("message", function(data) {
       console.log(data);
 
       if (data.payload.red === "on") {
@@ -49,7 +49,7 @@ Cylon.robot({
 
 ## How to Connect
 
-First, you need to register a device on the Skynet network. You can do this with a curl command similar to this one:
+First, you need to register a device on the Octoblu network. You can do this with a curl command similar to this one:
 
     $ curl -X POST http://meshblu.octoblu.com/devices
 
@@ -73,9 +73,9 @@ For our contribution guidelines, please go to [https://github.com/hybridgroup/cy
 
 ## Release History
 
-For the release history, please go to [https://github.com/hybridgroup/cylon-skynet/blob/master/RELEASES.md
-](https://github.com/hybridgroup/cylon-skynet/blob/master/RELEASES.md
+For the release history, please go to [https://github.com/hybridgroup/cylon-octoblu/blob/master/RELEASES.md
+](https://github.com/hybridgroup/cylon-octoblu/blob/master/RELEASES.md
 ).
 
 ## License
-Copyright (c) 2013-2015 The Hybrid Group. Licensed under the Apache 2.0 license.
+Copyright (c) 2013-2016 The Hybrid Group. Licensed under the Apache 2.0 license.

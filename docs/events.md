@@ -2,7 +2,7 @@
 
 ## message(data)
 
-Gets triggered when Skynet sends a message notification.
+Gets triggered when Octoblu sends a message notification.
 
 ##### Params
 
@@ -10,4 +10,4 @@ Gets triggered when Skynet sends a message notification.
 
 ## connect
 
-Gets triggered when the connection to Skynet has been opened.
+Gets triggered when the connection to Octoblu has been opened.

@@ -4,8 +4,8 @@ var Adaptor = require("./lib/adaptor"),
     Driver = require("./lib/driver");
 
 module.exports = {
-  adaptors: ["skynet"],
-  drivers: ["skynet"],
+  adaptors: ["octoblu"],
+  drivers: ["octoblu"],
 
   adaptor: function(opts) {
     return new Adaptor(opts);

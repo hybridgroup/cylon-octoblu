@@ -1,6 +1,6 @@
 "use strict";
 
-// SkyNet cURL requests to create and message devices:
+// Meshblu cURL requests to create and message devices:
 
 // curl -X POST http://meshblu.octoblu.com/devices
 
@@ -19,7 +19,7 @@ var Cylon = require("cylon");
 Cylon.robot({
   connections: {
     arduino: { adaptor: "firmata", port: "/dev/tty.usbmodem1411" },
-    skynet: { adaptor: "skynet", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
+    octoblu: { adaptor: "octoblu", uuid: "SKYNET_UUID", token: "SKYNET_TOKEN" }
   },
 
   devices: {
@@ -27,7 +27,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.skynet.on("message", function(data) {
+    my.octoblu.on("message", function(data) {
       console.log(data);
       if (data.payload.red === "on") {
         my.led.turnOn();

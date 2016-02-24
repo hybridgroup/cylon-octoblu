@@ -5,8 +5,8 @@ var Cylon = require("cylon");
 Cylon
   .robot()
   .connection("arduino", { adaptor: "firmata", port: "/dev/tty.usbmodem1411" })
-  .connection("skynet", {
-    adaptor: "skynet",
+  .connection("octoblu", {
+    adaptor: "octoblu",
     uuid: "SKYNET_UUID",
     token: "SKYNET_TOKEN"
   })
@@ -14,7 +14,7 @@ Cylon
   .on("ready", function(bot) {
     console.log("connected...");
 
-    bot.skynet.on("message", function(data) {
+    bot.octoblu.on("message", function(data) {
       console.log(data);
 
       if (data.payload.red === "on") {
