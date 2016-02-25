@@ -1,6 +1,6 @@
 {
   "name": "cylon-octoblu",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "description": "Cylon.js adaptor for the Octoblu open source machine to machine protocol",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-octoblu/issues",

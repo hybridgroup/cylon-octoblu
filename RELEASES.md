@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.16.0 - Added all API functions
+
 Version 0.15.0 - Changed name to cylon-octoblu
 
 Version 0.14.0 - Use Cylon 1.2.0
